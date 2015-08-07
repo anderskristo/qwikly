@@ -1,27 +1,31 @@
 (function () {
     var app = angular.module('qwikly');
 
-    app.config(function ($httpProvider, RestangularProvider, $translateProvider, $locationProvider, jwtInterceptorProvider, qwiklyProvider) {
+    app.config(function ($httpProvider, RestangularProvider, $translateProvider, $locationProvider, jwtInterceptorProvider) {
         $httpProvider.defaults.xsrfCookieName = 'csrftoken';
         $httpProvider.defaults.xsrfHeaderName = 'X-CSRFToken';
 
-        RestangularProvider.setRequestSuffix('/');
-        RestangularProvider.setBaseUrl('/api/v1');
-
         $translateProvider.preferredLanguage('sv');
+
 
         $translateProvider.useStaticFilesLoader({
             prefix: '/static/angular/locale/locale-',
             suffix: '.json'
         });
 
-        qwiklyProvider.$getConfig({jsonConfigFile: 'qwikly-config.json'})
-            .then(function (qwiklyConfig) {
-                console.info(qwiklyConfig);
-                RestangularProvider.setBaseUrl(qwiklyConfig.base_api_url);
-            });
+        RestangularProvider.setRequestSuffix('/');
+        RestangularProvider.setBaseUrl("https://www.protimr.com/api/v1/");
+
+//        qwiklyProvider.$setConfig({jsonConfigFile: 'qwikly-config.json'})
+//            .then(function (qwiklyConfig) {
+//                RestangularProvider.setRequestSuffix('/');
+//                RestangularProvider.setBaseUrl(qwiklyConfig.base_api_url);
+//            });
+
+//        qwiklyProvider.$setPages({jsonUrl: 'qwikly-local-pages.json'});
 
         $locationProvider.html5Mode(true);
+
 
         /* Get token */
         jwtInterceptorProvider.tokenGetter = [function () {
