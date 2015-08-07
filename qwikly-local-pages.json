@@ -1,0 +1,36 @@
+{
+    "pages": [
+        {
+            "title": "Project List",
+            "description": "This page is all about how my life got twisted upside down.",
+            "frontend_url": "projects/",
+            "api_url": "api/v1/job/projects/",
+            "list": {
+                "pagination": true,
+                "fields": ["start_date", "end_date", "user.full_name", "title", "description", "created_at"],
+                "search_fields": ["title" ],
+                "filter": [
+                    {
+                        "label": "Start Date",
+                        "field": "start_date",
+                        "type": "1",
+                        "api_url": ""
+                    },
+                    {
+                        "label": "User",
+                        "field": "user",
+                        "type": "0",
+                        "api_url": "/api/v1/core/users"
+                    }
+                ]
+            },
+            "create": {
+                "fields": ["start_date", "end_date", "user.full_name", "title", "description"]
+            },
+            "edit": {
+                "fields": ["start_date", "end_date", "user.full_name", "title", "description"]
+            },
+            "delete": true
+        }
+    ]
+}
