@@ -1,0 +1,17 @@
+<div class="modal-header">
+    <h3 class="modal-title">
+        {{ 'add_item_to' | translate }} {{ modalTitle }}
+    </h3>
+</div>
+<div class="modal-body">
+    <form name="ListNewForm">
+        <div class="form-group" ng-repeat="field in currentQwiklyPage.create.fields">
+            <label>{{ field.title }}</label>
+            <qwikly-field ng-model="newItem[field.key]" field-kind="field.kind"></qwikly-field>
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-warning" ng-click="cancel()">{{ 'cancel' | translate }}</button>
+    <button class="btn btn-success" ng-click="createNewItem()" ng-disabled="ListNewForm.$invalid">{{ 'save' | translate }}</button>
+</div>

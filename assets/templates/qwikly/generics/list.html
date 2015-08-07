@@ -1,0 +1,48 @@
+<div ng-controller="QwiklyListCtrl">
+
+    <div class="jumbotron">
+        <h1>{{ currentQwiklyPage.title }}</h1>
+
+        <p>{{ currentQwiklyPage.description }}</p>
+    </div>
+
+    <div class="clearfix" ng-if="showCreateNewButton()">
+        <button class="btn btn-primary pull-right" ng-click="openListItemCreateModal()">
+            {{ 'create_new_item' | translate }}
+        </button>
+    </div>
+
+    <hr/>
+
+
+    <table class="table table-striped table-bordered">
+        <thead>
+        <tr>
+            <th ng-repeat="field in currentQwiklyPage.list.fields">
+                {{ field.title }}
+            </th>
+            <th ng-if="showOptions()">
+                {{ 'options' | translate }}
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="item in qwiklyListResponse">
+            <th ng-repeat="field in currentQwiklyPage.list.fields">
+                {{ item[field.key] }}
+            </th>
+            <th ng-if="showOptions()">
+                <div class="btn-group pull-right">
+                    <a class="btn btn-danger" ng-if="showDeleteButton();" ng-click="deleteItem(item)">
+                        {{ 'delete' | translate }}
+                    </a>
+                    <a class="btn btn-warning" ng-if="showEditButton();" ng-click="openListItemEditModal(item)">
+                        {{ 'edit' | translate }}
+                    </a>
+                </div>
+            </th>
+        </tr>
+        </tbody>
+    </table>
+
+</div>

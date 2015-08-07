@@ -6,23 +6,35 @@
         var $http = initInjector.get('$http');
         var $q = initInjector.get('$q');
 
+        var pages = {};
         var config = {};
 
         return {
-            $getConfig: function (settings) {
+            $setPages: function (settings) {
                 var deferred = $q.defer();
 
-                $http.get(settings.jsonConfigFile)
+                $http.get(settings.jsonUrl)
                     .then(function (response) {
-                        deferred.resolve(response.data)
-                    },
-                    function (error) {
-                        deferred.reject(error)
+                        pages = response.data.pages;
+                        deferred.resolve(pages);
                     });
 
                 return deferred.promise;
             },
-            $get: {}
+
+            $setConfig: function (settings) {
+                $http.get(settings.jsonUrl)
+                    .then(function (response) {
+                        config = response.data;
+                    })
+            },
+
+            $get: function () {
+                return {
+                    pages: pages,
+                    config: config
+                }
+            }
         }
     });
 })();
