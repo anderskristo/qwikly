@@ -1,0 +1,23 @@
+html {
+  min-height: 100%;
+  height: 100%;
+  body {
+    min-height: inherit;
+    height: inherit;
+    [ui-view="FullContentView"] {
+      min-height: inherit;
+      height: inherit;
+    }
+  }
+}
+
+[ui-sref], [ng-click] {
+  cursor: pointer;
+}
+
+.m-top-30 {
+  margin-top: 30px;
+}
+.m-top-15 {
+  margin-top: 15px;
+}

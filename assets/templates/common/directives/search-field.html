@@ -1,0 +1,9 @@
+<form class="form-default">
+    <div class="input-group">
+        <div class="input-group-addon ng-binding">
+            <i class="fa fa-search" ng-if="!loading"></i>
+            <i class="fa fa-circle-o-notch fa-spin text-warning" ng-if="loading"></i>
+        </div>
+        <input class="form-control" ng-model="query.search" placeholder="{{ placeholder }}"/>
+    </div>
+</form>

@@ -1,0 +1,28 @@
+<form class="form-authenticate" name="signUpForm" ng-submit="signUp();" ng-controller="UserRegistrationCtrl">
+    <h2 class="form-authenticate-heading">
+        {{ 'get_started' | translate }}
+    </h2>
+
+    <input type="email" id="email" class="form-control" ng-model="signUpCredentials.email" placeholder="{{ 'enter_email' | translate }}" required autofocus="">
+    <input type="password" class="form-control" ng-model="signUpCredentials.password" placeholder="{{ 'enter_password' | translate }}" required>
+    <input type="password2" class="form-control" ng-model="signUpCredentials.password2" placeholder="{{ 'confirm_password' | translate }}" required>
+
+    <small class="help-block" ng-if="!isPasswordValid()">
+        {{ 'password_must_be_equal' | translate }}
+    </small>
+
+    <field-error errors="formErrors.email"></field-error>
+    <field-error errors="formErrors.password"></field-error>
+    <field-error errors="formErrors.password2"></field-error>
+    <field-error errors="formErrors.non_field_errors"></field-error>
+
+    <button type="submit" class="btn btn-lg btn-primary btn-block" ng-disabled="signUpForm.$invalid">
+        {{ 'sign_up' | translate }}
+    </button>
+
+    <div class="text-right m-top-15">
+        <a ui-sref="guest">
+            {{ 'sign_in' | translate }}
+        </a>
+    </div>
+</form>

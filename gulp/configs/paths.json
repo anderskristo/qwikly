@@ -1,0 +1,35 @@
+{
+    "lodash": ["bower_components/lodash/lodash.js"],
+    "angular": ["bower_components/angular/angular.min.js"],
+    "angular-ui-router": ["bower_components/angular-ui-router/release/angular-ui-router.min.js"],
+    "angular-jwt": ["bower_components/angular-jwt/dist/angular-jwt.min.js"],
+    "angular-ui-select": ["bower_components/angular-ui-select/dist/select.min.js"],
+    "angular-translate": [
+        "bower_components/angular-translate/angular-translate.min.js",
+        "bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js"
+    ],
+    "ui-bootstrap": [
+        "bower_components/angular-bootstrap/ui-bootstrap.min.js",
+        "bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"
+    ],
+    "momentjs": [
+        "bower_components/momentjs/min/moment.min.js",
+        "bower_components/momentjs/min/locales.min.js"
+    ],
+    "sweetalert": [
+        "bower_components/sweetalert/dist/sweetalert.min.js"
+    ],
+    "restangular": [
+        "bower_components/restangular/dist/restangular.min.js"
+    ],
+    "angularitics": [
+        "bower_components/angularitics/dist/angulartics.min.js",
+        "bower_components/angularitics/dist/angulartics-ga.min.js"
+    ],
+    "web-includes": [
+        "assets/js/angular/app.js",
+        "assets/js/external/**/*.js",
+        "assets/js/angular/scripts/**/*.js",
+        "assets/js/tmp/**/*.js"
+    ]
+}

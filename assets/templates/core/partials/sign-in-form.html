@@ -1,0 +1,26 @@
+<form class="form-authenticate" name="signInForm" ng-submit="signIn();" ng-controller="SignInCtrl">
+    <h2 class="form-authenticate-heading">
+        {{ 'please_sign_in' | translate }}
+    </h2>
+
+    <label for="inputEmail" class="sr-only">{{ 'email' | translate }}</label>
+    <input type="email" id="inputEmail" class="form-control" ng-model="signInCredentials.email" placeholder="{{ 'enter_email' | translate }}" required autofocus="">
+
+    <label for="inputPassword" class="sr-only">{{ 'password' | translate }}</label>
+    <input type="password" class="form-control" ng-model="signInCredentials.password" placeholder="{{ 'enter_password' | translate }}" required>
+
+    <field-error errors="formErrors.email"></field-error>
+    <field-error errors="formErrors.password"></field-error>
+    <field-error errors="formErrors.non_field_errors"></field-error>
+
+    <button type="submit" class="btn btn-lg btn-primary btn-block" ng-disabled="signInForm.$invalid">
+        <i class="fa fa-spinner fa-spin" ng-if="signInCredentials.pending"></i>
+        {{ 'sign_in' | translate }}
+    </button>
+
+    <div class="text-right m-top-15">
+        <a ui-sref="guest.sign-up">
+            {{ 'sign_up' | translate }}
+        </a>
+    </div>
+</form>

@@ -1,0 +1,5 @@
+<button type="{{ type }}" ng-class="cssClass" ng-disabled="ngDisabled">
+    <i class="fa fa-save" ng-if="!loading"></i>
+    <i class="fa fa-circle-o-notch fa-spin" ng-if="loading"></i>
+    <span class="hidden-xs">{{ label }}</span>
+</button>
