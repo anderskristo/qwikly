@@ -1,6 +1,22 @@
 angular.module('qwikly')
     .service('CommonService', function ($q, $translate, Restangular, $modal, CoreService) {
         return {
+            successAlert: function () {
+                swal({
+                    title: $translate.instant('success_alert_title'),
+                    text: $translate.instant('success_alert_message'),
+                    timer: 2000,
+                    type: 'success'
+                })
+            },
+            errorAlert: function () {
+                swal({
+                    title: $translate.instant('error_alert_title'),
+                    text: $translate.instant('error_alert_message'),
+                    timer: 2000,
+                    type: 'error'
+                })
+            },
             confirm: function (successPromise, secure, text, title) {
                 var deferred = $q.defer();
 
@@ -33,7 +49,7 @@ angular.module('qwikly')
                     text: text,
                     type: type,
                     showCancelButton: true,
-                    confirmButtonColor: "#913D88",
+//                    confirmButtonColor: "#913D88",
                     confirmButtonText: $translate.instant('yes'),
                     cancelButtonText: $translate.instant('no'),
                     closeOnConfirm: false,
@@ -67,7 +83,7 @@ angular.module('qwikly')
 
                 return deferred.promise;
             },
-            openModal: function (templateUrl, controller, windowClass, size) {
+            openModal: function (templateUrl, controller, data, windowClass, size) {
                 if (CoreService.isAuthenticated()) {
                     windowClass = windowClass ? windowClass : 'modal-alfa';
                     size = size ? size : 'md';
@@ -77,6 +93,11 @@ angular.module('qwikly')
                         size: size,
                         controller: controller,
                         windowClass: windowClass,
+                        resolve: {
+                            data: function () {
+                                return data;
+                            }
+                        }
                     });
                 }
             },
