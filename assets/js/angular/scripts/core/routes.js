@@ -32,7 +32,7 @@
                         templateUrl: 'core/landings/authenticated.html'
                     },
                     "MainContentView@authenticated": {
-                        templateUrl: 'welcome/landing.html'
+                        templateUrl: 'qwikly/landing.html'
                     }
                 },
                 onEnter: function (CoreService) {
