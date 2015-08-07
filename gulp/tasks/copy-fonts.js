@@ -10,6 +10,8 @@ var gulp        = require('gulp'),
 
 module.exports = function () {
     gulp.task('copy-fonts', [], function () {
-        gulp.src(['./assets/fonts/**/*']).pipe(gulp.dest('./www/fonts'));
+        gulp.src(['./assets/fonts/**/*'])
+            .pipe(gulp.dest('./www/fonts'))
+            .pipe(reload({stream: true}));
     });
 };
